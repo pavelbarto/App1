@@ -13,6 +13,21 @@
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">Hello, World !</x:String>
+        <Style x:Key="BigGreenTextStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="36"/>
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="SelectionHighlightColor" Value="{ThemeResource TextSelectionHighlightColorThemeBrush}"/>
+            <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Typography.StylisticSet20" Value="True"/>
+            <Setter Property="Typography.DiscretionaryLigatures" Value="True"/>
+            <Setter Property="Typography.CaseSensitiveForms" Value="True"/>
+            <Setter Property="LineHeight" Value="40"/>
+            <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+            <Setter Property="TextLineBounds" Value="TrimToBaseline"/>
+            <Setter Property="OpticalMarginAlignment" Value="TrimSideBearings"/>
+            <Setter Property="Foreground" Value="Green"/>
+        </Style>
     </Page.Resources>
 
     <!--
@@ -28,8 +43,8 @@
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
-            <RowDefinition Height="171*"/>
-            <RowDefinition Height="457*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="120 *"/>
         </Grid.RowDefinitions>
 
         <!-- Back button and page title -->
@@ -47,5 +62,18 @@
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" FontFamily="Global User Interface"/>
         </Grid>
+        
+        <!-- Pridanie panelu na zadanie mena a tlacitok -->
+
+        <StackPanel Grid.Row="1" Margin="120,30,0,0">
+            <TextBlock Text="Whats your name" Style="{StaticResource BaseTextBlockStyle}"/>
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
+                <TextBox x:Name="nameInput" Width="300" HorizontalAlignment="Left"/>
+                <Button Content="Say &quot;Hello&quot;" Click="Button_Click"/>
+            </StackPanel>
+            <TextBlock x:Name="greetingOutput" Style="{StaticResource BigGreenTextStyle}"/>
+            <Button Content="Go to photo page" Click="PhotoPageButton_Click"/>
+        </StackPanel>
+
     </Grid>
 </Page>

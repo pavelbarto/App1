@@ -21,7 +21,7 @@ namespace App1
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class PhotoPage : Page
     {
 
         private NavigationHelper navigationHelper;
@@ -45,7 +45,7 @@ namespace App1
         }
 
 
-        public MainPage()
+        public PhotoPage()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
@@ -102,19 +102,5 @@ namespace App1
         }
 
         #endregion
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            greetingOutput.Text = "Hello, " + nameInput.Text + "!";
-        }
-
-        private void PhotoPageButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Add this code.
-            if (this.Frame != null)
-            {
-                this.Frame.Navigate(typeof(PhotoPage));
-            }
-        }
     }
 }
